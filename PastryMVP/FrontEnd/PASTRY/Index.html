@@ -57,12 +57,12 @@
             <form id="formLogin">
             <label class="input-container">
                 <img src="Assets/IMG/usuario (1).png" class="icon_login">
-                <input type="text" placeholder="USUARIO" id="user">
+                <input type="text" placeholder="USUARIO" id="user" required>
             </label>
             <br>
             <label class="input-container">
               <img src="Assets/IMG/candado.png" class="icon_login2">
-                <input type="password" placeholder="CONTRASEÑA" id="contra">
+                <input type="password" maxlength="13" placeholder="CONTRASEÑA" id="contra" required>
             </label>
             <br>
             <div class="container_mensaje" id="Mensi">
@@ -71,7 +71,6 @@
             <div class="contaner_boton_login">
               <a href="">¿Se te olvido la Contraseña?</a>
               <button type="submit" id="Ingresar">INGRESAR</button>
-              
             </div>
             </form>
             <div class="vector3"><img src="Assets/IMG/vector_login3.png"  alt=""></div>
@@ -88,22 +87,25 @@
                 <br>
                 <br>
                 <label for="usuario"></label>
-                <input type="text" class="regis_input" id="usuario" placeholder="User">
+                <input type="text" class="regis_input" id="usuario" placeholder="User" required>
                 <label for="nombre"></label>
-                <input type="text" class="regis_input" id="nombre" placeholder="Nombre">
+                <input type="text" class="regis_input" id="nombre" placeholder="Nombre" required>
                 <label for="correo"></label>
-                <input type="email" class="regis_input" id="correo" placeholder="Correo">
+                <input type="email" class="regis_input" id="correo" placeholder="Correo" required>
                 <label for="tel"></label>
-                <input type="tel" class="regis_input" id="tel" placeholder="Teléfono">
+                <input type="tel" class="regis_input" id="tel" placeholder="Teléfono" required>
                 <label for="fechaNac"></label>
-                <input type="date" class="regis_input" id="fechaNac" placeholder="Fecha de Nacimiento">
+                <input type="date" class="regis_input" id="fechaNac" placeholder="Fecha de Nacimiento" required>
                 <label for="cedula"></label>
-                <input type="text" class="regis_input" id="cedula" placeholder="Cédula">
+                <input type="text" class="regis_input" id="cedula" placeholder="Cédula" required>
                 <label for="direccion"></label>
-                <input type="text" class="regis_input" id="direccion" placeholder="Dirección">
+                <input type="text" class="regis_input" id="direccion" placeholder="Dirección" required>
                 <label for="clave"></label>
-                <input type="password" class="regis_input" id="clave" placeholder="Clave">
+                <input type="password" maxlength="13" class="regis_input" id="clave" placeholder="Clave" required>
                 <br>
+                <div class="container_mensaje" id="Mensi2">
+                  <h3 id="MensajeLogin2"></h3>  
+                </div>
                 <button type="submit">REGISTRARSE</button>
               </form>     
             </div>

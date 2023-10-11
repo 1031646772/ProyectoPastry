@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&family=REM:ital@1&family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Kanit:ital,wght@1,700&display=swap');
+:root{
+    --coffee:#3D3D3D;
+    --coffee2:#3d3d3dda;
+    --white:#fefefe;
+    --fur:#E4E1D8;
+    --grey:#A6A6A6;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Marcellus', serif;
+    box-sizing: border-box;
+}
+
+/* Header */
+
+header{
+   background: var(--coffee);
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0.6em;
+}
+
+.hamburger{
+    display: none;
+}
+
+.nav-bar{
+    color: var(--fur);
+    width: 12em;
+    height: auto;
+}
+
+.nav-bar ul li{
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-bar ul li i{
+    font-size: 2em;
+}
+
+.nav-bar ul li button{
+    border: 0;
+    width: 7em;
+    
+}
+
+.logo img{
+    width: 5em;
+    height: 4em;
+} 
+
+/* main */
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+}
+
+main h1{
+    width: 80%;
+    color: var(--grey);
+    font-family: 'Kanit', sans-serif;
+    font-size: 3em;
+}
+
+main h1 hr{
+    border: 0;
+    height: 2px;
+    width: 60%;
+    background: var(--coffee);
+}
+
+.options{
+    width: 80%;
+    height: 39em;
+    display: flex;
+    flex-direction: column;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.conte{
+    width: 100%;
+    height: 9em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+form .tres{
+    display: flex;
+    justify-content: space-around;
+}
+
+form .tres select{
+    border: 0;
+    background: var(--grey);
+    width: 15em;
+    height: 2.5em;
+    border-radius: 0.5em;
+    font-weight: 600;
+    font-size: 1.1em;
+} 
+
+form .tres .cantidad{
+    width: 500px;
+}
+
+form .op {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 15em;
+    width: 95%;
+    padding: 2.5em 2em 2.5em 2em;
+    border-radius: 0.5em;
+    background: var(--fur);
+}
+
+form .op input[type="text"]::placeholder {
+    font-size: 20px; /* Tamaño de fuente del placeholder */
+    color: #000000; /* Color del placeholder */
+    padding: 1em;
+}
+
+.op input{
+    border: 0;
+    height: 100%;
+    width: 35%;
+    background: var(--white);
+    border-radius: 2em;
+}
+
+.file-upload {
+    display: flex;
+    height: 100%;
+}
+
+.file-upload input[type="file"] {
+    display: none; /* Oculta el campo de entrada de archivos original */
+}
+
+.file-upload label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    width: 10em;
+    flex-direction: column;
+    font-size: 1.5em;
+}
+
+.op button{
+    border: 0;
+    width: 3em;
+    font-size: 3em;
+}
+
+.file-upload label i{
+    font-size: 3.5em;
+}
+
+footer{
+    background: var(--coffee);
+    padding: 1.5em;
+    display: flex;
+    justify-content: center;
+}
+
+footer p{
+    width: 30%;
+    text-align: center;
+    color: var(--fur);
+}
+
+
+/* responsive movil */
+@media only screen and ( max-width: 415px){
+
+    .hamburger{
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger .line{
+        width: 30px;
+        height: 3px;
+        background: #fefefe;
+        margin: 6px 0;
+        border-radius: 5em;
+    }
+
+    .nav-bar{
+        height: 0;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        top: 70px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: var(--coffee2);
+        transition: 0.5s;
+        overflow: hidden;
+    }
+
+    .nav-bar.active{
+        height: auto;
+    }
+    .nav-bar ul{
+        display: flex;
+        justify-content: center;
+        padding: 1em;
+        transition: 0.5s;
+        opacity: 0;
+
+    }
+
+    .nav-bar ul li{
+        width: 60%;
+    }
+    .nav-bar.active ul{
+        width: 90%;
+        opacity: 1;
+    }
+    main{
+        height: auto;
+    }
+
+    main h1{
+        width: 100%;
+        font-size: 1.5em;
+    }
+
+    main h1 hr{
+        width: 100%;
+    }
+
+    .options{
+        width: 100%;
+        height: 65em;
+    }
+    .conte{
+        height: auto;
+        align-items: center;
+    }
+
+    form .tres{
+        display: flex;
+        flex-direction: column;
+        height: 13em;
+    }
+
+    form .tres .cantidad{
+        width: 15em;
+    }
+
+    form .op{
+        height: 30em;
+        flex-direction: column;
+    }
+
+    .op input{
+        width: 100%;
+    }
+
+    .file-upload label{
+        font-size: 1.2em;
+        height: 7em;
+    }
+
+    footer p{
+        width: 100%;
+    }
+
+}
+
+@media only screen and ( min-width:1800px){
+    main{
+        height: 100vh;
+    }
+}

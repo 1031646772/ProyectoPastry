@@ -18,7 +18,8 @@ function ReadUser(req,res){
 }
 function IngresarUsu(req, res) {
   const { user, contra } = req.body;
-  const readQuery = `select * from usuario where Usuario=? and Clave=?;`;
+  console.log(user);
+  const readQuery = `select * from usuario inner join rol on usuario.Id_usuario=rol.Id_usuario where Usuario=? and Clave=?;`;
   const query = mysql2.format(readQuery, [user, contra]);
   database.query(query, (err, result) => {
     if (err) {

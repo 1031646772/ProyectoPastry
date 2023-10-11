@@ -7,3 +7,5 @@ const database = mysql2.createConnection({
     database: 'Pasteleria',
 });
 module.exports=database
+
+

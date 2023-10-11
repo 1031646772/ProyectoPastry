@@ -25,35 +25,48 @@ reg.addEventListener('submit', async (e) => {
         const cedula = document.getElementById('cedula').value;
         const direccion = document.getElementById('direccion').value;
         const clave = document.getElementById('clave').value;
-  
+        if (clave.length<5){
+            const contenedor_mensaje=document.getElementById("Mensi2");
+            contenedor_mensaje.style.display="block";
+            const respuesta='Valida la clave, El tamaño por seguridad es mayor a 5 caracteres';
+            document.getElementById('MensajeLogin2').innerHTML=respuesta;
+        }
+        else if(clave.length>13){
+            const contenedor_mensaje=document.getElementById("Mensi");
+            contenedor_mensaje.style.display="block";
+            const respuesta='Valida la clave, El tamaño por seguridad es de maximo 13 caracteres';
+            document.getElementById('MensajeLogin').innerHTML=respuesta;
+        }
+        else{
+            await fetch('http://127.0.0.1:3000/user/pastry', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    usu: user,
+                    contra: clave,
+                    nombre: nombre,
+                    telefono: telefono,
+                    cedula: cedula,
+                    fecha_n: fechaNac,
+                    correo: correo,
+                    direccion: direccion,
+                }),
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                message = data.message;
+                if (message === 'Usuario creado') {
+                    window.location.href = 'Views/productos.html';
+                } else {
+                    window.location.href = 'Index.html';
+                }
+                console.log(`GET ${user} and ${clave}`);
+            });
+            modalContainer.style.display = 'none'; 
+            // Cerrar el modal después de enviar el formulario
+        }
         let message = '';
-        await fetch('http://127.0.0.1:3000/user/pastry', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                usu: user,
-                contra: clave,
-                nombre: nombre,
-                telefono: telefono,
-                cedula: cedula,
-                fecha_n: fechaNac,
-                correo: correo,
-                direccion: direccion,
-            }),
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            message = data.message;
-            if (message === 'Usuario creado') {
-                window.location.href = 'Views/productos.html';
-            } else {
-                window.location.href = 'Index.html';
-            }
-            console.log(`GET ${user} and ${clave}`);
-        });
-  
-        modalContainer.style.display = 'none'; // Cerrar el modal después de enviar el formulario
     });
 
